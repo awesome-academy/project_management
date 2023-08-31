@@ -1,0 +1,23 @@
+<tr>
+  <td><%= group_name project %></td>
+  <td><%= project.name %></td>
+  <td><%= project.description %></td>
+  <td class="text-center">
+    <span class="badge rounded-pill text-bg-<%= project.status %>">
+      <%= t ".#{project.status}" %>
+    </span>
+  </td>
+  <td><%= format_date project.start_date %></td>
+  <td><%= format_date project.end_date %></td>
+  <td class="text-center">
+    <button type="button" class="btn btn-primary btn-sm">
+      <i class="bi-eye-fill"></i>
+    </button>
+    <button type="button" class="btn btn-success btn-sm">
+      <i class="bi-pencil-square"></i>
+    </button>
+    <button type="button" class="btn btn-danger btn-sm">
+      <i class="bi-trash-fill"></i>
+    </button>
+  </td>
+</tr>

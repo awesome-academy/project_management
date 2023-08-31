@@ -1,5 +1,11 @@
 digits:
   length_6: 6
+  length_30: 30
+  length_50: 50
   length_255: 255
 email:
   regex: !ruby/regexp '/\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i'
+date:
+  format: "%d/%m/%Y"
+pagy:
+  number_items: 8

@@ -1,0 +1,13 @@
+<% provide :title, t(".title") %>
+<h1 class="fw-bold mb-0 text-center"><%= t ".title" %></h1>
+
+<div class="container w-50 d-flex justify-content-center">
+  <div class="form-outline mt-4 mb-4">
+    <%= form_with(url: password_resets_path, scope: :password_reset) do |f| %>
+      <%= f.label :email, class: "form-label", for: "session_email"  %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.submit t(".submit"), class: "btn btn-primary btn-block mt-4 mb-4 w-100" %>
+    <% end %>
+  </div>
+</div>

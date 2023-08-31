@@ -7,14 +7,14 @@ class User < ApplicationRecord
   has_many :projects, through: :project_users
   has_many :reports, dependent: :destroy
 
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :reset_token
 
   VALID_EMAIL_REGEX = Settings.email.regex
 
   validates :email, presence: true,
             length: {maximum: Settings.digits.length_255},
             format: {with: VALID_EMAIL_REGEX},
-            uniqueness: true
+            unique: true
   validates :password, presence: true,
             length: {minimum: Settings.digits.length_6},
             allow_nil: true
@@ -65,5 +65,22 @@ class User < ApplicationRecord
   # We reuse the remember digest for convenience.
   def session_token
     remember_digest || remember
+  end
+
+  # Sets the password reset attributes.
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns reset_digest: User.digest(reset_token),
+                   reset_sent_at: Time.zone.now
+  end
+
+  # Sends password reset email.
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  # Returns true if a password reset has expired.
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 end

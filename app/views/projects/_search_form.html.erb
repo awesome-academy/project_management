@@ -1,0 +1,20 @@
+<%= form_with url: projects_path, method: :get, class: "row g-4 pb-4" do |f| %>
+  <div class="col-auto">
+    <%= f.label :name,  t(".name") %>
+    <%= f.text_field :name, value: params[:name] %>
+  </div>
+  <div class="col-auto">
+    <%= f.label :group, t(".group") %>
+    <%= f.select :group, list_group, {include_blank: true, selected: @selected_group} %>
+  </div>
+  <div class="col-auto">
+  <%= f.label :status, t(".status") %>
+  <%= f.select :status, list_status, {include_blank: true, selected: @selected_status} %>
+  </div>
+  <div class="col-auto">
+    <%= f.submit t(".search"), class: "btn btn-primary" %>
+    <%= link_to projects_path, class: "btn btn-secondary" do %>
+      <i class="bi bi-arrow-counterclockwise"></i>
+    <% end %>
+  </div>
+<% end %>

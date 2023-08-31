@@ -1,0 +1,7 @@
+<tr>
+  <td><%= project.id %></td>
+  <td><span class="fw-bold"><%= project.name %></span></td>
+  <td><%= project.reports.sum(:effort_time) / 100 %></td>
+  <td><%= link_to t(".detail"), resource_path(project) %></td>
+  <td><%= format_date project.start_date %></td>
+</tr>
