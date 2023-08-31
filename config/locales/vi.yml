@@ -43,3 +43,14 @@ vi:
     error_messages:
       error_total: "Biểu mẫu chứa"
       error: "Lỗi"
+  resources:
+    index:
+      resources: "Tài nguyên"
+      select_date: "Chọn ngày"
+      search: "Tìm kiếm"
+      export_report: "Xuất báo cáo"
+      share: "Chía sẻ"
+      order: "STT"
+      project_name: "Tên dự án"
+      man_month: "Số man/Month"
+      detail: "Chi tiết"	

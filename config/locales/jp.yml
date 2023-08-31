@@ -43,3 +43,14 @@ jp:
     error_messages:
       error_total: "フォームには次の内容が含まれます"
       error: "エラー"
+  resources:
+    index:
+      resources: "リソース"
+      select_date: "日付を選択"
+      search: "検索"
+      export_report: "レポートのエクスポート"
+      share: 共有
+      order: 番号順
+      project_name: "プロジェクト名"
+      man_month: "男/月"
+      detail: 詳細

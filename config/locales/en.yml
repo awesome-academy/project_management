@@ -43,3 +43,14 @@ en:
     error_messages:
       error_total: "The form contains"
       error: "error"
+  resources:
+    index:
+      resources: "Resources"
+      select_date: "Select date"
+      search: "Search"
+      export_report: "Export report"
+      share: "Share"
+      order: "Number order"
+      project_name: "Project name"
+      man_month: "man/Month"
+      detail: "Detail"
