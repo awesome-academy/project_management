@@ -14,3 +14,32 @@ jp:
   layouts:
     header:
       Sign_out: "サインアウト"
+  user_mailer:
+    password_reset:
+      subject: "パスワードのリセット"
+      title: "パスワードをリセットするには、以下のリンクをクリックしてください。  "
+      description: "このリンクは 2 時間後に期限切れになります。パスワードのリセットをリクエストしていない場合は、このメールを無視してください。パスワードはそのまま残ります。"
+      password_reset: "パスワードのリセット"
+      reset_password: "パスワードを再設定します"
+  password_resets:
+    new:
+      title: "パスワードをお忘れですか"
+      submit: "提出します"
+    edit:
+      title: "パスワードを再設定します"
+      password: "パスワード"
+      confirmation: "確認"
+      submit: "パスワードを更新します"
+    create:
+      flash_info_create: "パスワードのリセット手順が記載されたメールが送信されました"
+      flash_danger_create: "メールアドレスが見つかりません"
+    update:
+      flash_update_success: "パスワードがリセットされました。"
+      empty_password_error: "空にはなりません"
+    flash_check_expiration_danger: "パスワードのリセットの有効期限が切れました。"
+    flash_get_user_danger: "ユーザーが見つかりません！"
+    flash_valid_user_danger: "ユーザーは非アクティブです!"
+  shared:
+    error_messages:
+      error_total: "フォームには次の内容が含まれます"
+      error: "エラー"

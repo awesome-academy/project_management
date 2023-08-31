@@ -14,3 +14,58 @@ en:
   layouts:
     header:
       Sign_out: "Sign out"
+  user_mailer:
+    password_reset:
+      subject: "Password reset"
+      title: "To reset your password click the link below:"
+      description: "This link will expire in two hours. If you did not request your password to be reset, please ignore this email and your password will stay as it is."
+      password_reset: "Password reset"
+      reset_password: "Reset password"
+  password_resets:
+    new:
+      title: "Forgot password"
+      submit: "Submit"
+    edit:
+      title: "Reset password"
+      password: "Password"
+      confirmation: "Confirmation"
+      submit: "Update password"
+    create:
+      flash_info_create: "Email sent with password reset instructions"
+      flash_danger_create: "Email address not found"
+    update:
+      flash_update_success: "Password has been reset."
+      empty_password_error: "can't be empty"
+    flash_check_expiration_danger: "Password reset has expired."
+    flash_get_user_danger: "User not found!"
+    flash_valid_user_danger: "User is in_actived!"
+  shared:
+    error_messages:
+      error_total: "The form contains"
+      error: "error"
+  projects:
+    index:
+      name: "Project"
+      status: "Status"
+      group: "Group"
+      action: "Actions"
+      start_date: "Start date"
+      end_date: "End date"
+      description: "Description"
+    search_form:
+      name: "Project name"
+      group: "Group"
+      status: "Status"
+      search: "Search"
+  pagy:
+    item_name:
+      one: "item"
+      other: "items"
+    nav:
+      prev: "&lsaquo;"
+      next: "&rsaquo;"
+      gap: "&hellip;"
+    info:
+      no_items: "0 of 0"
+      single_page: "%{count} of %{count}"
+      multiple_pages: "%{from}-%{to} of %{count}"

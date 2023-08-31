@@ -14,3 +14,58 @@ vi:
   layouts:
     header:
       Sign_out: "Đăng xuất"
+  user_mailer:
+    password_reset:
+      subject: "Đặt lại mật khẩu"
+      title: "Nhấn vào link dưới để đặt lại mật khẩu:"
+      description: "Link này sẽ hết hạn trong 2 giờ. Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này và mật khẩu của bạn vẫn sẽ giữ nguyên."
+      password_reset: "Đặt lại mật khẩu"
+      reset_password: "Đặt lại mật khẩu"
+  password_resets:
+    new:
+      title: "Quên mật khẩu"
+      submit: "Gửi"
+    edit:
+      title: "Đặt lại mật khẩu"
+      password: "Mật khẩu"
+      confirmation: "Xác nhận"
+      submit: "Cập nhật mật khẩu"
+    create:
+      flash_info_create: "Đã gửi email hướng dẫn đặt lại mật khẩu"
+      flash_danger_create: "Không tìm thấy địa chỉ email"
+    update:
+      flash_update_success: "Mật khẩu đã được đặt lại."
+      empty_password_error: "không được để trống"
+    flash_check_expiration_danger: "Đặt lại mật khẩu đã hết hạn."
+    flash_get_user_danger: "Không tìm thấy người dùng!"
+    flash_valid_user_danger: "Người dùng chưa được kích hoạt!"
+  shared:
+    error_messages:
+      error_total: "Biểu mẫu chứa"
+      error: "Lỗi"
+  projects:
+    index:
+      name: "Dự án"
+      status: "Trạng thái"
+      group: "Nhóm giam gia"
+      action: "Hành động"
+      start_date: "Ngày bắt đầu"
+      end_date: "Ngày kết thúc"
+      description: "Mô tả"
+    search_form:
+      name: "Tên dự án"
+      group: "Nhóm"
+      status: "Trạng thái"
+      search: "Tìm kiếm"
+  pagy:
+    item_name:
+      one: "trang"
+      other: "trang"
+    nav:
+      prev: "&lsaquo;"
+      next: "&rsaquo;"
+      gap: "&hellip;"
+    info:
+      no_items: "0 trang"
+      single_page: "%{count} trong tổng số %{count}"
+      multiple_pages: "%{from}-%{to} trong tổng số %{count}"
