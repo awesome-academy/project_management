@@ -8,7 +8,7 @@ class ResourcesController < ApplicationController
   def filtered_projects
     projects = Project.all
     projects = filter_by_filled_in projects
-    projects = filter_by_name projects
+    filter_by_name projects
   end
 
   def filter_by_name projects
@@ -18,6 +18,6 @@ class ResourcesController < ApplicationController
   end
 
   def filter_by_filled_in projects
-    projects.includes(:reports).where.not(reports: { id: nil })
+    projects.includes(:reports).where.not(reports: {id: nil})
   end
 end

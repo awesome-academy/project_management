@@ -11,7 +11,9 @@ class Project < ApplicationRecord
   has_many :health_items, through: :project_health_items
   belongs_to :group
 
-  scope :search_by_name, -> (name) { where("LOWER(name) LIKE ?", "%#{name.downcase}%") }
+  scope :search_by_name, lambda {|name|
+                           where("LOWER(name) LIKE ?", "%#{name.downcase}%")
+                         }
 
   def status_text
     case status
