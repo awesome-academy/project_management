@@ -1,0 +1,10 @@
+<%= form_with url: resources_path, method: :get do |f| %>
+
+  <%= f.label t("resources.index.search") , class: "form-label h6"%>
+  <div class="input-group input-group-merge">
+    <%= f.text_field :name, value: params[:name], placeholder: t("resources.index.search"), class: "form-control bg-light-green border-light-green"%>
+    <span class="input-group-text bg-light-green border-light-green p-0">
+      <%= f.submit t("resources.index.search"), class: "btn btn-primary rounded-2 w-80px h-30px p-0 mx-1" %>
+    </span>
+  </div>
+<% end %>

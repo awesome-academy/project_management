@@ -4,19 +4,7 @@
     <%= text_field_tag :search, nil, placeholder: "MM/DD/YYYY", class: "form-control" %>
   </div>
   <div class="col">
-    <label class="form-label h6"><%= t(".search") %></label>
-    <div class="input-group input-group-merge">
-      <!-- Input -->
-      <%= text_field_tag :search, nil, placeholder: t(".search"), class: "form-control bg-light-green border-light-green" %>
-
-      <!-- Button -->
-      <span class="input-group-text bg-light-green border-light-green p-0">
-        <!-- Button -->
-        <button class="btn btn-primary rounded-2 w-30px h-30px p-0 mx-1" type="button">
-          <i class="bi bi-search"></i>
-        </button>
-      </span>
-    </div>
+    <%= render("resources/search") %>
   </div>
 </div> <!-- / .row -->
 <div class="row py-3">
@@ -79,7 +67,7 @@
                   <%= item.reports.sum(:effort_time)/100 %>
                 </td>
                 <td>
-                  <%= link_to t(".detail") , resource_path(item[:id]) %>
+                  <%= link_to t(".detail") , project_path(item[:id]) %>
                 </td>
               </tr>
               <% end %>

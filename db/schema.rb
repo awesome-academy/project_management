@@ -185,7 +185,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_154813) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "avatar", null: false
-    t.string "remember_digest"
+    t.string "remember_token", null: false
     t.string "slack_id"
     t.string "git_account"
     t.datetime "delete_at"
@@ -193,7 +193,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_154813) do
     t.datetime "updated_at", null: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "permission_roles", "permissions"

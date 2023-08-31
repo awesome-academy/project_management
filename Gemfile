@@ -24,6 +24,8 @@ gem "sassc-rails", "2.1.2"
 
 gem "rails-i18n"
 
+gem "pagy"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

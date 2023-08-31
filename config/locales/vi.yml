@@ -53,4 +53,30 @@ vi:
       order: "STT"
       project_name: "Tên dự án"
       man_month: "Số man/Month"
-      detail: "Chi tiết"	
+      detail: "Chi tiết"
+  projects:
+    index:
+      name: "Dự án"
+      status: "Trạng thái"
+      group: "Nhóm giam gia"
+      action: "Hành động"
+      start_date: "Ngày bắt đầu"
+      end_date: "Ngày kết thúc"
+      description: "Mô tả"
+    search_form:
+      name: "Tên dự án"
+      group: "Nhóm"
+      status: "Trạng thái"
+      search: "Tìm kiếm"
+  pagy:
+    item_name:
+      one: "trang"
+      other: "trang"
+    nav:
+      prev: "&lsaquo;"
+      next: "&rsaquo;"
+      gap: "&hellip;"
+    info:
+      no_items: "0 trang"
+      single_page: "%{count} trong tổng số %{count}"
+      multiple_pages: "%{from}-%{to} trong tổng số %{count}"

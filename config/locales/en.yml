@@ -54,3 +54,29 @@ en:
       project_name: "Project name"
       man_month: "man/Month"
       detail: "Detail"
+  projects:
+    index:
+      name: "Project"
+      status: "Status"
+      group: "Group"
+      action: "Actions"
+      start_date: "Start date"
+      end_date: "End date"
+      description: "Description"
+    search_form:
+      name: "Project name"
+      group: "Group"
+      status: "Status"
+      search: "Search"
+  pagy:
+    item_name:
+      one: "item"
+      other: "items"
+    nav:
+      prev: "&lsaquo;"
+      next: "&rsaquo;"
+      gap: "&hellip;"
+    info:
+      no_items: "0 of 0"
+      single_page: "%{count} of %{count}"
+      multiple_pages: "%{from}-%{to} of %{count}"
