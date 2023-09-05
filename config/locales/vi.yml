@@ -43,3 +43,29 @@ vi:
     error_messages:
       error_total: "Biểu mẫu chứa"
       error: "Lỗi"
+  pagy:
+    item_name:
+      one: "trang"
+      other: "trang"
+    nav:
+      prev: "&lsaquo;"
+      next: "&rsaquo;"
+      gap: "&hellip;"
+    info:
+      no_items: "0 trang"
+      single_page: "%{count} trong tổng số %{count}"
+      multiple_pages: "%{from}-%{to} trong tổng số %{count}"
+  resources:
+    index:
+      resources: "Tài nguyên"
+      select_date: "Chọn ngày"
+      search: "Tìm kiếm"
+      search_by_name: "Tìm kiếm theo tên"
+      export_report: "Xuất báo cáo"
+      share: "Chía sẻ"
+      order: "STT"
+      project_name: "Tên dự án"
+      man_month: "Số man/Month"
+      detail: "Chi tiết"
+      date: "Ngày tháng"
+      date_invalid: "Định dạng ngày không hợp lệ"

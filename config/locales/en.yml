@@ -43,3 +43,29 @@ en:
     error_messages:
       error_total: "The form contains"
       error: "error"
+  pagy:
+    item_name:
+      one: "item"
+      other: "items"
+    nav:
+      prev: "&lsaquo;"
+      next: "&rsaquo;"
+      gap: "&hellip;"
+    info:
+      no_items: "0 of 0"
+      single_page: "%{count} of %{count}"
+      multiple_pages: "%{from}-%{to} of %{count}"
+  resources:
+    index:
+      resources: "Resources"
+      select_date: "Select date"
+      search: "Search"
+      search_by_name: "Search by name"
+      export_report: "Export report"
+      share: "Share"
+      order: "Number order"
+      project_name: "Project name"
+      man_month: "man/Month"
+      detail: "Detail"
+      date: "Date"
+      date_invalid: "Date format invalid"

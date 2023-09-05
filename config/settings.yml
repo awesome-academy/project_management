@@ -5,3 +5,5 @@ digits:
   length_255: 255
 email:
   regex: !ruby/regexp '/\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i'
+date:
+  format: "%d/%m/%Y"

@@ -1,0 +1,47 @@
+<div class="table-responsive">
+  <table class="table table-bordered align-middle table-edge table-hover table-nowrap mb-0">
+    <thead class="thead-light">
+      <tr>
+        <th class="text-dark">
+          <%= t(".order")%>
+        </th>
+        <th class="text-dark">
+          <%= t(".project_name")%>
+        </th>
+        <th class="text-dark">
+          <%= t(".man_month")%>
+        </th>
+        <th class="text-dark">
+          <%= t(".detail")%>
+        </th>
+        <th class="text-dark">
+          <%= t(".date")%>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody class="list">
+      <% @projects.each_with_index do |item, index| %>
+        <tr>
+          <td>
+            <%= item[:id] %>
+          </td>
+          <td>
+            <span class="fw-bold">
+              <%= item[:name] %>
+            </span>
+          </td>
+          <td>
+            <%= item.reports.sum(:effort_time)/100 %>
+          </td>
+          <td>
+            <%= link_to t(".detail") , resource_path(item[:id]) %>
+          </td>
+          <td>
+            <%= format_date item.start_date %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
