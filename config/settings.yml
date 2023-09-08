@@ -13,3 +13,5 @@ pagy:
 project:
   max_length_200: 200
   max_length_1000: 1000
+manager_id: 2
+admin_id: 3

@@ -1,0 +1,21 @@
+<%= form_for @project_user, url: resources_path, method: 'POST' do |f| %>
+  <div class="mb-3">
+    <div class="my-2" data-controller="nested-rondo" data-associated-with="project_user_resources">
+      <div data-nested-rondo-target="fieldContain">
+        <%= f.fields_for :project_user_resources do |detail| %>
+          <%= render "project_user_resources", f: detail %>
+        <% end %>
+      </div>
+      <div class="links">
+        <%= link_to_add_association f, :project_user_resources do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="bi bi-plus-circle" width="1.5em" height="1.5em" data-association="project_user_resources" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" data-association="project_user_resources" />
+          </svg>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <%= f.submit "submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

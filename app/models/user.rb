@@ -83,4 +83,12 @@ class User < ApplicationRecord
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
+
+  def admin?
+    roles.find_by(id: Settings.admin_id).present?
+  end
+
+  def manager?
+    roles.find_by(id: Settings.manager_id).present?
+  end
 end

@@ -21,4 +21,18 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "flash_logged_in_user_danger"
     redirect_to login_url, status: :see_other
   end
+
+  def verify_admin
+    return if current_user&.admin?
+
+    flash[:danger] = t "flash_verify_admin_danger"
+    redirect_to request.referer || root_path
+  end
+
+  def verify_manager
+    return if current_user&.manager?
+
+    flash[:danger] = t "flash_verify_manager_danger"
+    redirect_to request.referer || root_path
+  end
 end

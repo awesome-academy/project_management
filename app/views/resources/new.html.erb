@@ -1,0 +1,40 @@
+<% content_for :javascript_file do %>
+  <%= javascript_include_tag "select" %>
+<% end %>
+
+<%= form_with model: @project, url: resources_path, method: :post do |f| %>
+  <div class="mb-3 row">
+    <div class="col-3">
+      <h4>Date/year</h4>
+    </div>
+    <div class="col-9">
+      <%= f.date_field :date, class: "form-select col-md-6" %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-3">
+      <h4>Select project</h4>
+    </div>
+    <div class="col-9">
+      <%= f.select :project_id, options_for_select(list_projects, selected: @project_id), { include_blank: @project_id.nil? ? t("project.form.select_project") : nil }, class: "form-select", id: "select_project"%>
+    </div>
+  </div>
+  <h4>Add memeber</h4>
+  <% list_members(@project_id).each do |user| %>
+    <div class="mb-3 row">
+      <div class="col-5">
+        <%= f.select :member_id, options_for_select(list_members(@project_id).map { |user| [user.name, user.id] }, selected: user.id), { prompt: "Select member" }, class: "form-select" %>
+      </div>
+      <div class="col-4">
+        <%= f.number_field "member_efforts[#{user.id}]", class: "form-control", max: 100, min: 0 %>
+      </div>
+      <div class="col-3">
+       <%= link_to 'X', '#' %>
+      </div>
+    </div>
+  <% end %>
+  <%= render "resource"%>
+  <%= hidden_field_tag :project_id, @project_id %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

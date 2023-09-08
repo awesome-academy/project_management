@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :password_resets, only: %i(new create edit update)
     resources :resources
     resources :users, only: %i(edit update)
+    resources :project_user_resources
   end
 end

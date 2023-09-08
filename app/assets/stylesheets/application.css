@@ -5882,7 +5882,6 @@ textarea.form-control-lg {
   box-shadow: 0 0 transparent;
   color: var(--bs-body-color);
   display: block;
-  font-family: Open Sans,Segoe UI Emoji,Segoe UI Symbol,Segoe UI,Apple Color Emoji,Twemoji Mozilla,Noto Color Emoji,EmojiOne Color,Android Emoji,sans-serif,system-ui,-apple-system;
   font-size: .75rem;
   font-weight: 400;
   line-height: 1.5;
@@ -35222,10 +35221,6 @@ a,button {
 
 .col-form-label {
   font-size: .75rem
-}
-
-.form-control {
-  font-family: Open Sans,Segoe UI Emoji,Segoe UI Symbol,Segoe UI,Apple Color Emoji,Twemoji Mozilla,Noto Color Emoji,EmojiOne Color,Android Emoji,sans-serif,system-ui,-apple-system
 }
 
 .form-control[readonly] {
