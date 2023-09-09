@@ -76,6 +76,20 @@ jp:
       detail: "詳細"
       date: "日付"
       date_invalid: "日付形式が無効です"
+    new:
+      select_project: "プロジェクトを選択"
+      date: "日付を選択してください"
+      save: "保存"
+    create:
+      required_date: "日付を選択してください"
+      required_project: "プロジェクトを選択してください"
+      create_success: "リソースが正常に作成されました。"
+      create_fail: "リソースの作成に失敗しました。"
+      at_least_1: "少なくとも 1 つのリソースを作成します"
+    project_user_resource_fields:
+      remove: "削除"
+      select_member: "メンバーを選択"
+      effort: "作業パーセント (0 ～ 100)"
   projects:
     index:
       name: "プロジェクト"

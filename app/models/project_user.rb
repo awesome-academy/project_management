@@ -13,4 +13,7 @@ class ProjectUser < ApplicationRecord
     role_id = role&.id
     where(project_role_id: role_id).pluck(:project_id)
   }
+
+  accepts_nested_attributes_for :project_user_resources, allow_destroy: true,
+    reject_if: :all_blank
 end

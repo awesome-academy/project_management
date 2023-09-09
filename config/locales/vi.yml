@@ -76,6 +76,20 @@ vi:
       detail: "Chi tiết"
       date: "Ngày tháng"
       date_invalid: "Định dạng ngày không hợp lệ"
+    new:
+      select_project: "Chọn dự án"
+      date: "Chọn ngày"
+      save: "Lưu"
+    create:
+      required_date: "Hãy chọn ngày"
+      required_project: "Hãy chọn dự án"
+      create_success: "Tạo tài nguyên thành công."
+      create_fail: "Tạo tài nguyên không thành công."
+      at_least_1: "Ít nhất tạo 1 tài nguyên"
+    project_user_resource_fields:
+      remove: "Xóa"
+      select_member: "Chọn thành viên"
+      effort: "Phần trăm làm việc (0 - 100)"
   projects:
     index:
       name: "Dự án"

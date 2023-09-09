@@ -105,6 +105,21 @@ class User < ApplicationRecord
                         user_id: id)
   end
 
+  def projects_role_psm
+    role = Role.find_by(name: Settings.project_roles.PSM)
+
+    if role
+      projects = Project.joins(:project_users).where(project_users: {
+                                                       user_id: id,
+                                                       project_role_id: role.id
+                                                     })
+    else
+      projects = []
+    end
+
+    projects
+  end
+
   def can_edit_delete_project? project
     admin? || manager? || creator_project?(project) || role_psm?(project)
   end
