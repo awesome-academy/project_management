@@ -76,6 +76,20 @@ en:
       detail: "Detail"
       date: "Date"
       date_invalid: "Date format invalid"
+    new:
+      select_project: "Select project"
+      date: "Select date"
+      save: "Save"
+    create:
+      required_date: "Please select a date"
+      required_project: "Please select a project"
+      create_success: "Resource created successfully."
+      create_fail: "Failed to create resource."
+      at_least_1: "At least create 1 resource"
+    project_user_resource_fields:
+      remove: "Delete"
+      select_member: "Select member"
+      effort: "Percent work (0 - 100)"
   projects:
     index:
       name: "Project"

@@ -1,0 +1,42 @@
+<% content_for :javascript_file do %>
+  <%= javascript_include_tag "select" %>
+<% end %>
+
+<%= form_with model: @project_user, url: resources_path, method: :post do |f| %>
+  <div class="mb-3 row">
+    <div class="col-3">
+      <h4><%= t(".date")%></h4>
+    </div>
+    <div class="col-9">
+      <%= f.date_field :joined_at, class: "form-select col-md-6", required: true%>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-3">
+      <h4><%= t(".select_project")%></h4>
+    </div>
+    <div class="col-9">
+      <%= f.select :project_id, options_for_select(current_user.valid_projects_by_role.map{|item| [item.name, item.id]} || [], selected: @project_id), { prompt: t(".select_project") }, class: "form-select", id: "select_project", required: true %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <div class="my-2" data-controller="nested-rondo" data-associated-with="project_user_resources">
+      <div data-nested-rondo-target="fieldContain">
+        <%= f.fields_for :project_user_resources do |detail| %>
+          <%= render "project_user_resource_fields", f: detail %>
+        <% end %>
+      </div>
+      <div class="links">
+        <%= link_to_add_association f, :project_user_resources do %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="bi bi-plus-circle" width="1.5em" height="1.5em" data-association="project_user_resources" >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" data-association="project_user_resources" />
+          </svg>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.submit t(".save"), class: "btn btn-primary" %>
+<% end %>
