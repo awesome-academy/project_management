@@ -18,5 +18,6 @@ Rails.application.routes.draw do
     resources :reports
     resources :release_plans
     resources :project_features
+    resources :health, only: %i(new create)
   end
 end

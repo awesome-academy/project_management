@@ -1,0 +1,30 @@
+
+<div class="card">
+  <div class="card-body p-6">
+    <%= form_with url: health_index_path, method: :post do |f| %>
+
+      <div class="mb-3 row w-50 mb-4 font-weight-bold">
+        <div class="col-6">
+          <h3><%= t("resources.new.select_project")%></h3>
+        </div>
+        <div class="col-6">
+          <%= f.select :project_id, options_for_select(current_user.valid_projects_by_role.map{|item| [item.name, item.id]} || []), { prompt: t("resources.new.select_project") }, class: "form-select", id: "select_project", required: true %>
+        </div>
+      </div>
+
+      <h3 class="mt-4 mb-6 font-weight-bold"><%= t(".check_list")%></h3>
+
+      <% @health_items.each do |item| %>
+        <div class="mb-3 row w-50">
+        <div class="col-6">
+          <%= item.item %>
+        </div>
+        <div class="col-6">
+            <%= f.select "health_items[#{item.id}]", status_options, {:prompt => t("project.form.select_status")}, class: "form-select"%>
+          </div>
+      </div>
+      <% end %>
+      <%= f.submit t("reports.form.save"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

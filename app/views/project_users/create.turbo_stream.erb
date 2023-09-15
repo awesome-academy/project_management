@@ -1,0 +1,8 @@
+<%= turbo_stream.update "modal", "" %>
+<%= turbo_stream.update "flash_message" do %>
+  <%= render "shared/flash_message" %>
+<% end %>
+
+<%= turbo_stream.append "project_members" do %>
+  <%= render @project_user %>
+<%end %>

@@ -422,3 +422,13 @@ en:
       month: "Invalid month"
       year: "Invalid year"
   message_valid_month_year: "Must be in the format 'YYYY-MM'"
+  health:
+    create:
+      create_fail: "Create project health failed"
+      create_success: "Create project health success"
+    status:
+      not_apply": "Not applied"
+      apply_no_full_update: "Applied but not fully updated"
+      apply_and_full_update: "Applied and fully updated"
+    new:
+      checklist: "Checklist"

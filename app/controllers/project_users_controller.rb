@@ -13,7 +13,10 @@ class ProjectUsersController < ApplicationController
     @project_user = ProjectUser.new project_user_params
     if @project_user.save
       flash[:success] = t "project_user.create_success"
-      redirect_to project_path @project
+      respond_to do |format|
+        format.html{redirect_to @project}
+        format.turbo_stream
+      end
     else
       flash.now[:danger] = t "project_user.create_fail"
       render :new, status: :unprocessable_entity

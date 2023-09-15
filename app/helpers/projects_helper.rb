@@ -58,8 +58,8 @@ module ProjectsHelper
     params[:page].present?
   end
 
-  def project_member_stt counter
-    counter + 1
+  def project_member_stt project, project_user
+    project.project_users.index(project_user) + 1
   end
 
   def list_customer customers

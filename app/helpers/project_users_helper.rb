@@ -1,6 +1,6 @@
 module ProjectUsersHelper
   def list_roles
-    Role.pluck :name, :id
+    Role.project_role.pluck :name, :id
   end
 
   def list_users
