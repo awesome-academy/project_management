@@ -432,3 +432,4 @@ jp:
       apply_and_full_update: "適用されて、完全に更新されました"
     new:
       checklist: "チェックリスト"
+    validate_filled: "完全に入力してください"

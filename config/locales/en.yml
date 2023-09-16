@@ -432,3 +432,4 @@ en:
       apply_and_full_update: "Applied and fully updated"
     new:
       checklist: "Checklist"
+    validate_filled: "Please fill in completely"
