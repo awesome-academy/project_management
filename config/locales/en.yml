@@ -516,7 +516,7 @@ en:
       value: "Value"
       resource: "Resource"
       diff: "Diff"
-      total_year: "Total for the year"
+      total_year: "Total months"
       total_value_year: "Total value of %{month} months"
       total_resource_year: "Total resource of %{month} months"
       total_diff_year: "Total diff of %{month} months"

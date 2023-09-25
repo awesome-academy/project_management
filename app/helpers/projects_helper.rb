@@ -39,13 +39,10 @@ module ProjectsHelper
     safe_join(out)
   end
 
-  def environment_name environment
-    environment_names = {staging: "danger",
-                         production: "info"}
-    environment_type_class = environment_names[environment.to_sym]
-    content_tag(:p, environment.capitalize,
-                class: "f-n-hover btn btn-#{environment_type_class} btn-raised
-                        px-4 py-25 w-75 text-600")
+  def environment_name_class environment
+    environment_names = {staging: "primary",
+                         production: "success"}
+    environment_names[environment.to_sym]
   end
 
   def page_tab?

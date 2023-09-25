@@ -1,38 +1,25 @@
-<div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-purple btn-h-outline-purple btn-a-outline-purple w-100 my-2 py-3 shadow-sm">
-  <div class="row align-items-center">
-    <div class="col-12 col-md-4 text-center">
-      <%= environment_name project_environment.environment %>
-    </div>
+<div class="col-lg-6 col-md-12 mt-4 pt-2">
+  <div class="card border-0 bg-light rounded shadow">
+    <div class="card-body p-4">
+      <span class="badge rounded-pill bg-<%= environment_name_class project_environment.environment %> float-md-end mb-3 mb-sm-0"><%= project_environment.environment %></span>
+      <div class="mt-3">
+        <span class="text-muted d-block"><i class="bi bi-geo-alt"></i> <%= t ".ip_address" %>: <%= project_environment.ip_address %></span>
+        <span class="text-muted d-block"><i class="bi bi-box-seam"></i> <%= t ".domain" %>: <%= project_environment.domain %></span>
+        <span class="text-muted d-block"><i class="bi bi-plug"></i>  <%= t ".port" %>: <%= project_environment.port %></span>
+        <span class="text-muted d-block"><i class="bi bi-hdd-stack-fill"></i> <%= t ".web_server" %>: <%= project_environment.web_server %></span>
+      </div>
 
-    <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
-      <li>
-        <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
-        <span class="text-110"><%= t ".ip_address" %>: <%= project_environment.ip_address %></span>
-      </li>
-
-      <li class="mt-25">
-        <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
-        <span class="text-110"><%= t ".domain" %>: <%= project_environment.ip_address %></span>
-      </li>
-
-      <li class="mt-25">
-        <i class="fa fa-times text-danger-m3 text-110 mr-25 mt-1"></i>
-        <span class="text-110"><%= t ".port" %>: <%= project_environment.port %></span>
-      </li>
-
-      <li class="mt-25">
-        <i class="fa fa-times text-danger-m3 text-110 mr-25 mt-1"></i>
-        <span class="text-110"><%= t ".web_server" %>: <%= project_environment.web_server %></span>
-      </li>
-    </ul>
-
-    <div class="col-12 col-md-4">
-      <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
-        <%= t ".note" %>
-      </h4>
-
-      <div class="text-dark-l1 text-120">
-        <%= project_environment.note %>
+      <div class="mt-3">
+        <a
+          href="#project_environment_node_<%= project_environment.id %>"
+          class="btn btn-primary"
+          data-bs-toggle="collapse"
+        >
+          <%= t ".note" %>
+        </a>
+      </div>
+      <div class="collapse mt-3" id="project_environment_node_<%= project_environment.id %>">
+        <div class="text-dark-l1 text-120"><%= project_environment.note %></div>
       </div>
     </div>
   </div>

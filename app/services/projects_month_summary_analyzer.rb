@@ -1,9 +1,10 @@
 class ProjectsMonthSummaryAnalyzer < Patterns::Service
   include ValueResourcesHelper
 
-  def initialize projects, year
+  def initialize projects, start_month_year, end_month_year
     @projects = projects
-    @year = year
+    @start_month_year = start_month_year
+    @end_month_year = end_month_year
   end
 
   def call
@@ -11,18 +12,17 @@ class ProjectsMonthSummaryAnalyzer < Patterns::Service
   end
 
   private
-  attr_reader :projects, :year
+  attr_reader :projects, :start_month_year, :end_month_year
 
   # calculator total value, resource, diff of all projects
   def value_resources_months_total
     project_ids = projects.pluck(:id)
     hash_out = {}
     value_total = 0
-    month_number_displayed(year).times do |i|
-      month = i + 1
-      value_total, hash_out[month] = value_resources_month_total month,
-                                                                 value_total,
-                                                                 project_ids
+    # [[year, month], [year, month], [year, month], [year, month]]
+    month_number_displayed(start_month_year, end_month_year).each do |ele|
+      value_total, hash_out[ele.reverse.join "-"] =
+        value_resources_month_total ele, value_total, project_ids
     end
     hash_out[:total] = value_resources_year_total hash_out
     # {1: {value, resource, diff}, 2: {value, resource, diff}, ..., diff},
@@ -49,13 +49,16 @@ class ProjectsMonthSummaryAnalyzer < Patterns::Service
      diff: diffs_total}
   end
 
-  def value_resources_month_total month, value_total, project_ids
+  def value_resources_month_total month_year, value_total, project_ids
     # sum all value in year form month 1 to current month of list projects
+    # month_year = [year, month]
     value_total += ProjectFeature
-                   .total_man_month_projects project_ids, month, year
+                   .total_man_month_projects project_ids, month_year[1],
+                                             month_year[0]
     # resource total in month of list projects
     resource_total = ProjectUserResource
-                     .total_man_month_projects project_ids, month, year
+                     .total_man_month_projects project_ids, month_year[1],
+                                               month_year[0]
     # # hash :month
     hash_month = {value: value_total.round(Settings.digits.length_2),
                   resource: resource_total,

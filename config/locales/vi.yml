@@ -516,7 +516,7 @@ vi:
       value: "Giá trị"
       resource: "Nguồn lực"
       diff: "Khác biệt"
-      total_year: "Tổng cả năm"
+      total_year: "Tổng các tháng"
       total_value_year: "Tổng giá trị %{month} tháng"
       total_resource_year: "Tổng tài nguyên %{month} tháng"
       total_diff_year: "Tổng chênh lệch %{month} tháng"

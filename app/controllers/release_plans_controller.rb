@@ -48,7 +48,7 @@ class ReleasePlansController < ApplicationController
   def update
     if @release_plan.update release_plan_params
       flash[:success] = t(".update_success")
-      redirect_to root_url
+      redirect_to release_plans_path
     else
       @projects = current_user.valid_projects_by_role
       flash[:danger] = t(".update_danger")

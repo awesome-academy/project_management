@@ -1,13 +1,14 @@
 module DashboardHelper
-  def value_resources_total_chart projects, year
-    hash_month = ProjectsMonthSummaryAnalyzer.call(projects, year).result
+  def value_resources_total_chart projects, start_month_year, end_month_year
+    hash_month = ProjectsMonthSummaryAnalyzer.call(projects, start_month_year,
+                                                   end_month_year).result
     # not use total in chart
     hash_month.delete(:total)
     values = {}
     resources = {}
     diffs = {}
     hash_month.each do |key, value|
-      month_string = [key, year].join "-"
+      month_string = key
       values[month_string] = value[:value]
       resources[month_string] = value[:resource]
       diffs[month_string] = value[:diff]
@@ -30,8 +31,9 @@ module DashboardHelper
     end
   end
 
-  def value_resources_total projects, year
-    hash_month = ProjectsMonthSummaryAnalyzer.call(projects, year).result
+  def value_resources_total projects, start_month_year, end_month_year
+    hash_month = ProjectsMonthSummaryAnalyzer.call(projects, start_month_year,
+                                                   end_month_year).result
     hash_month[:total]
   end
 

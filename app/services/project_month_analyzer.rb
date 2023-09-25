@@ -1,9 +1,10 @@
 class ProjectMonthAnalyzer < Patterns::Service
   include ValueResourcesHelper
 
-  def initialize project, year
+  def initialize project, start_month_year, end_month_year
     @project = project
-    @year = year
+    @start_month_year = start_month_year
+    @end_month_year = end_month_year
   end
 
   def call
@@ -11,16 +12,17 @@ class ProjectMonthAnalyzer < Patterns::Service
   end
 
   private
-  attr_reader :project, :year
+  attr_reader :project, :start_month_year, :end_month_year
 
   # calculator project value, resource, diff per month in year
   def value_resources_months
     # return hash value, resource, diff per month
     hash_out = {}
     value_total = 0
-    month_number_displayed(year).times do |i|
-      month = i + 1
-      value_total, hash_out[month] = value_resources_month month, value_total
+    # [[year, month], [year, month], [year, month], [year, month]]
+    month_number_displayed(start_month_year, end_month_year).each do |ele|
+      value_total, hash_out[ele.reverse.join "-"] =
+        value_resources_month ele, value_total
     end
     hash_out[:total] = value_resources_year hash_out
     # {1: {value, resource, diff}, 2: {value, resource, diff}, ..., diff},
@@ -45,13 +47,14 @@ class ProjectMonthAnalyzer < Patterns::Service
      diff: diffs_total.round(Settings.digits.length_2)}
   end
 
-  def value_resources_month month, value_total
+  def value_resources_month month_year, value_total
     # sum all value in year form month 1 to current month of project
+    # month_year = [year, month]
     value_total += project.project_features
-                          .total_man_month_year(month, year)
+                          .total_man_month_year month_year[1], month_year[0]
     # resource total in month
     resource_total = project.project_user_resources
-                            .total_man_month_year(month, year)
+                            .total_man_month_year month_year[1], month_year[0]
     # hash :month
     hash_month = {value: value_total.round(Settings.digits.length_2),
                   resource: resource_total,

@@ -69,3 +69,17 @@
 .float-right {
   float: right!important;
 }
+
+.value-resource-table tr td:nth-child(1) {
+  position: sticky;
+  left: 0;
+  background-color: #b4e1ee;
+}
+
+.value-resource-table tbody tr:nth-child(1) td{
+  background-color: #d1d0d0a3;
+}
+
+.border-2 {
+  border: #0a0a0b 2px;
+}

@@ -10,37 +10,47 @@
   <% end %>
 </div>
 <div style="overflow-x: scroll">
-  <table class="table table-striped table-hover table-bordered table-responsive">
+  <table class="table table-striped table-hover table-bordered table-responsive position-relative value-resource-table">
     <thead>
       <tr>
         <th class="w-200px"></th>
-        <% month_number_displayed(params[:year]).times do |i| %>
-          <th colspan="3" class="w-400px"> <%= t "project_features.project_feature.month" %> <%= i + 1 %> </th>
+        <% month_number_displayed(start_month_field_value(params[:start_month_year]),
+                                  month_field_value(params[:end_month_year])).each do |month_year| %>
+          <th colspan="3" class="w-400px"> <%= t "project_features.project_feature.month" %> <%= month_year.join("-") %> </th>
         <% end %>
         <th colspan="3" class="w-600px"><%= t ".total_year" %></th>
       </tr>
       <tr>
         <th><%= t "projects.index.name" %></th>
-        <% month_number_displayed(params[:year]).times do |i| %>
+        <% month_number_displayed(start_month_field_value(params[:start_month_year]),
+                                  month_field_value(params[:end_month_year])).each do |i| %>
           <th><%= t ".value" %></th>
           <th><%= t ".resource" %></th>
           <th><%= t ".diff" %></th>
         <% end %>
         <th>
-          <%= t ".total_value_year", month: month_number_displayed(params[:year]) %>
+          <%= t ".total_value_year",
+                month: month_number_displayed(start_month_field_value(params[:start_month_year]),
+                                              month_field_value(params[:end_month_year])).length %>
         </th>
         <th>
-          <%= t ".total_resource_year", month: month_number_displayed(params[:year]) %>
+          <%= t ".total_resource_year",
+                month: month_number_displayed(start_month_field_value(params[:start_month_year]),
+                                              month_field_value(params[:end_month_year])).length %>
         </th>
         <th>
-          <%= t ".total_diff_year", month: month_number_displayed(params[:year]) %>
+          <%= t ".total_diff_year",
+                month: month_number_displayed(start_month_field_value(params[:start_month_year]),
+                                              month_field_value(params[:end_month_year])).length %>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="font-weight-bold">
         <td><%= t ".total" %></td>
-        <%= value_resources_total_html @projects, year_field_value(params[:year]) %>
+        <%= value_resources_total_html @projects,
+                                       start_month_field_value(params[:start_month_year]),
+                                       month_field_value(params[:end_month_year]) %>
       </tr>
       <% @project_pagys.each do |project| %>
         <%= render partial: "value_resources/value_resource", locals: { project: project} %>

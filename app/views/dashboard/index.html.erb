@@ -12,7 +12,9 @@
           <h6 class="m-0 font-weight-bold text-primary"><%= t ".statistical_chart" %></h6>
         </div>
         <div class="card-body">
-          <%= line_chart value_resources_total_chart(@projects, year_field_value(params[:year])),
+          <%= line_chart value_resources_total_chart(@projects,
+                                                     start_month_field_value(params[:start_month_year]),
+                                                     month_field_value(params[:end_month_year])),
                          xtitle: t("project_features.new.month"),
                          ytitle: t("resources.table.man_month") %>
         </div>
@@ -48,7 +50,9 @@
 
     <div class="col-lg-4 mb-4">
       <!-- Content Row -->
-      <% value_resources_total(@projects, year_field_value(params[:year])).each do |key, value| %>
+      <% value_resources_total(@projects,
+                               start_month_field_value(params[:start_month_year]),
+                               month_field_value(params[:end_month_year])).each do |key, value| %>
         <!-- Project value resource diff total -->
         <div class="col-xl-12 col-md-12 mb-4">
           <div class="card border-left-<%= dashboard_card_color key, value %> shadow h-100 py-2">
