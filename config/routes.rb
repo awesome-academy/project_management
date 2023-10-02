@@ -22,7 +22,11 @@ Rails.application.routes.draw do
         resources :statistics_release_plans, only: :index
       end
     end
-    resources :project_features
+    resources :project_features do
+      collection do
+        get :plans
+      end
+    end
     resources :health, only: %i(new create edit update)
     resources :value_resources, only: :index
     resources :health_items

@@ -2,8 +2,7 @@
   <div class="d-flex justify-content-between">
     <div class="form-group col-3">
       <label class="required form-label" for="release_plan_project_id"><%= t ".choose_project" %></label>
-      <%= f.collection_select :project_id, @projects, :id, :name, {},
-                              {class: "form-control #{invalid @release_plan, :project_id}"} %>
+      <%= f.select :project_id, project_select, {}, class: "form-select #{invalid(@release_plan, :project_id)}" %>
       <p class="error"><%= show_errors @release_plan, :project_id %></p>
     </div>
 
@@ -28,8 +27,16 @@
 
   </div>
 
-  <div class="form-group mb-4" id="released_at-select_date-field" <%="hidden" unless @release_plan.is_released_released? %> >
-    <%= f.label t(".released_at"), class: "form-label" %>
+  <div class="form-group" id="release_code-text_field" <%="hidden" if @release_plan.is_released_preparing? && @release_plan.is_released %> >
+    <label class="required form-label" for="release_plan_release_code"><%= t ".release_code" %></label>
+    <%= f.text_field :release_code,
+                    class: "form-control #{invalid @release_plan, :release_code}",
+                    rows: "3" %>
+    <p class="error"><%= show_errors @release_plan, :release_code %></p>
+  </div>
+
+  <div class="form-group mb-4" id="released_at-select_date-field" <%="hidden" if @release_plan.is_released_preparing? && @release_plan.is_released %> >
+    <%= f.label t(".released_at"), class: "form-label required" %>
     <%= f.date_field :released_at, class: "form-control #{invalid(@release_plan, :released_at)}" %>
     <p class="error"><%= show_errors(@release_plan, :released_at) %></p>
   </div>

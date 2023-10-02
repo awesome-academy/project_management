@@ -1,11 +1,17 @@
 class ReleasePlan < ApplicationRecord
   UPDATE_ATTRS = [
     :project_id, :description,
-    :is_released, :release_date, :released_at
+    :is_released, :release_date,
+    :released_at, :release_code
   ].freeze
+
+  before_validation do
+    self.release_code = nil unless is_released_released?
+  end
 
   belongs_to :project
   belongs_to :creator, class_name: User.name
+  has_many :project_features, dependent: :destroy
 
   delegate :name, to: :project, prefix: true
   delegate :name, :email, to: :creator, prefix: true
@@ -18,6 +24,12 @@ class ReleasePlan < ApplicationRecord
   validates :description, presence: true,
             length: {maximum: Settings.project.max_length_200}
   validates :is_released, presence: true
+  validates :release_code, presence: true,
+            length: {
+              maximum: Settings.digits.length_30,
+              minimum: Settings.digits.length_2
+            },
+            uniqueness: {scope: :project_id}, if: :is_released_released?
   validate :check_is_released
 
   scope :in_date_range, lambda {|date_from, date_to|

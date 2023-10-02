@@ -397,7 +397,7 @@ en:
       description: "Description"
       status: "Status"
       submit: "Submit"
-      released_at: "Actual release date"
+      title: "Create new release plan"
     edit:
       title: "UPDATE RELEASE PLAN"
     form:
@@ -406,6 +406,7 @@ en:
       scope_release_description: "Scope release description"
       status: "Status"
       save: "Save"
+      release_code: "Release code"
       released_at: "Actual release date"
     is_released:
       preparing: "Prepare for release"
@@ -474,6 +475,7 @@ en:
       time_total: "Total hours saved per month: %{hour_total} hour"
       project_feature_index: "Project Feature List"
   project_features:
+    no_plan: "There are no plans for the project"
     project_feature:
       feature_description: "Feature description"
       waste_description: "Wasteful when not using the system"
@@ -541,6 +543,7 @@ en:
     errors:
       month: "Invalid month"
       year: "Invalid year"
+      release_plan_id: "Plans have not been released on this project"
   health:
     create:
       create_fail: "Create project health failed"

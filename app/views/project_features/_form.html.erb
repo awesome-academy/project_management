@@ -56,6 +56,14 @@
                          {class: "form-control #{invalid @project_feature, :repeat_unit}"} %>
           <p class="error"><%= show_errors @project_feature, :repeat_unit %></p>
         </div>
+        <div class="form-col">
+          <label class="form-label required">
+            <%= t "project_features.project_feature.repeat_unit" %>
+          </label>
+          <%= f.select :release_plan_id, list_plan_released(@project_feature.project_id), {},
+                         {class: "form-control #{invalid @project_feature, :release_plan_id}"} %>
+          <p class="error"><%= show_errors @project_feature, :release_plan_id %></p>
+        </div>
       </div>
       <div class="d-flex justify-content-end">
         <%= link_to t(".cancel"), "#",

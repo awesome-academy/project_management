@@ -29,6 +29,7 @@
             <i class="bi bi-three-dots-vertical"></i>
           </a>
           <div class="dropdown-menu">
+            <%= link_to t("reports.search_form.new_report"), new_report_path, class: "dropdown-item" %>
             <%= link_to t(".export"),
               reports_path(format: :xlsx,
                             name: params[:name],

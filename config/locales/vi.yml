@@ -397,7 +397,7 @@ vi:
       description: "Mô tả"
       status: "Trạng thái"
       submit: "Lưu"
-      released_at: "Ngày phát hành thực tế"
+      title: "Tạo kế hoạch phát hành mới"
     edit:
       title: "CẬP NHẬT KẾ HOẠCH PHÁT HÀNH"
     form:
@@ -406,6 +406,7 @@ vi:
       scope_release_description: "Mô tả phạm vi phát hành"
       status: "Trạng thái"
       save: "Lưu lại"
+      release_code: "mã phát hành"
       released_at: "Ngày phát hành thực tế"
     is_released:
       preparing: "Chuẩn bị phát hành"
@@ -474,6 +475,7 @@ vi:
       time_total: "Tổng số giờ tiết kiệm trên tháng: %{hour_total} giờ"
       project_feature_index: "Danh sách tính năng"
   project_features:
+    no_plan: "Không có kế hoạch cho dự án"
     project_feature:
       feature_description: "Mô tả tính năng"
       waste_description: "Lãng phí khi không sử dụng hệ thống"
@@ -541,6 +543,7 @@ vi:
     errors:
       month: "Tháng không hợp lệ"
       year: "Năm không hợp lệ"
+      release_plan_id: "Kế hoạch chưa được phát hành trong dự án này"
   health:
     create:
       create_fail: "Tạo sức khỏe dự án không thành công"

@@ -3,10 +3,11 @@ class ProjectFeature < ApplicationRecord
     :name, :description, :month,
     :year, :date, :waste_description,
     :effort_saved, :repeat_time,
-    :repeat_unit
+    :repeat_unit, :release_plan_id
   ].freeze
 
   belongs_to :project
+  belongs_to :release_plan
 
   delegate :name, to: :project, prefix: true
 
@@ -25,7 +26,8 @@ class ProjectFeature < ApplicationRecord
   validates :repeat_time, presence: true
   validates :repeat_unit, presence: true, inclusion: {in: repeat_units.keys}
   validates :man_month, presence: true
-  validate :valid_month?, :valid_year?
+  validates :release_plan_id, presence: true
+  validate :valid_month?, :valid_year?, :valid_release_plan?
 
   before_validation :add_man_month_before_save
 
@@ -99,5 +101,12 @@ class ProjectFeature < ApplicationRecord
     unless Date.valid_date? year, Time.zone.now.month, Settings.digits.length_1
       errors.add :month, I18n.t("validates.errors.year")
     end
+  end
+
+  def valid_release_plan?
+    release_plan = ReleasePlan.find_by id: release_plan_id
+    return if release_plan&.project_id == project_id
+
+    errors.add :release_plan_id, I18n.t("validates.errors.release_plan_id")
   end
 end

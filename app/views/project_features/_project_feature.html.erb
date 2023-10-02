@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="form-row mb-3 justify-content-between">
-          <div class="form-col col-3">
+          <div class="form-col col-2">
             <label class="form-label required">
               <%= t ".effort_time" %>
             </label>
@@ -30,11 +30,17 @@
             </label>
             <input type="number" class="form-control" value="<%= project_feature.repeat_time %>" disabled>
           </div>
-          <div class="form-col col-4">
+          <div class="form-col col-2">
             <label class="form-label required">
               <%= t ".repeat_unit" %>
             </label>
             <input type="text" class="form-control" value="<%= t ".#{project_feature.repeat_unit}" %>" disabled>
+          </div>
+          <div class="form-col col-3">
+            <label class="form-label required">
+              <%= t ".repeat_unit" %>
+            </label>
+            <input type="text" class="form-control" value="<%= project_feature.release_plan.release_code %>" disabled>
           </div>
         </div>
         <div class="form-row">

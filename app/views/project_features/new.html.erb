@@ -1,16 +1,21 @@
 <%= form_for @project, url: project_features_path do |f| %>
   <h1 class="d-flex fw-bold justify-content-center mb-8"><%= t(".new_value")%></h1>
   <div class="col-8 mx-auto">
-    <div class="mb-2 row d-flex justify-content-between">
-      <div class="col-6">
+    <div class="mb-2 row d-flex justify-content-between" data-controller="project">
+      <div class="col-4">
         <%= f.label :month_year, t(".month"), class: "form-label required" %>
         <%= f.date_field :month_year, type: "month", value: month_field_value(params[:month_year]), class: "form-control #{invalid(f.object, :month_year)}", required: true %>
         <p class="error"><%= show_errors(f.object, :month_year) %></p>
       </div>
-      <div class="col-6">
+      <div class="col-4">
         <%= f.label :project_id, t(".project_name"), class: "form-label required" %>
-        <%= f.select :project_id, project_select, {:prompt => t(".select_project")}, class: "form-select #{invalid(f.object, :project_id)}", required: true %>
+        <%= f.select :project_id, project_select, {:prompt => t(".select_project")}, class: "form-select #{invalid(f.object, :project_id)}", data: { action: "change->project#change" }, required: true %>
         <p class="error"><%= show_errors(f.object, :project_id) %></p>
+      </div>
+      <div class="col-4">
+        <%= f.label :release_plan_id, t(".project_name"), class: "form-label required" %>
+        <%= f.select :release_plan_id, [], {}, class: "form-select #{invalid(f.object, :release_plan_id)}", data: { project_target: "planSelect" }, required: true %>
+        <p class="error"><%= show_errors(f.object, :release_plan_id) %></p>
       </div>
     </div>
     <div class="mb-3">

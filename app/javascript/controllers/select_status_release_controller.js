@@ -9,7 +9,16 @@ export default class extends Controller {
     const releasedAtFieldElement = document.getElementById(
       "released_at-select_date-field"
     );
-    if (e.target.value == "released") releasedAtFieldElement.hidden = false;
-    else releasedAtFieldElement.hidden = true;
+    const releaseCodeFieldElement = document.getElementById(
+      "release_code-text_field"
+    );
+    if (e.target.value == "released") {
+      releasedAtFieldElement.hidden = false;
+      releaseCodeFieldElement.hidden = false;
+    }
+    else {
+      releasedAtFieldElement.hidden = true;
+      releaseCodeFieldElement.hidden = true;
+    }
   }
 }
