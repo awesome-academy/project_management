@@ -21,6 +21,15 @@
       </thead>
       <div class="card-header border-0 card-header-space-between">
         <h2 class="card-header-title h4 text-uppercase fw-bold"><%= t ".title" %></h2>
+        <!-- Dropdown -->
+        <div class="dropdown ms-4">
+          <a href="javascript: void(0);" class="dropdown-toggle no-arrow text-secondary" role="button"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="bi bi-three-dots-vertical"></i>
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to t("release_plans.search_form.new_release_plan"), new_release_plan_path, class: "dropdown-item" %>
+          </div>
       </div>
       <tbody>
         <%= render @release_plans %>

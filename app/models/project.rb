@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  attr_accessor :month_year, :project_id
+  attr_accessor :month_year, :project_id, :release_plan_id
 
   PROJECT_PARAMS = [
     :name, :rubato_id, :description, :status,
@@ -17,7 +17,7 @@ class Project < ApplicationRecord
   ].freeze
 
   PROJECT_FEATURE_PARAMS = [
-    :month_year, :project_id,
+    :month_year, :project_id, :release_plan_id,
     {
       project_features_attributes:
         [

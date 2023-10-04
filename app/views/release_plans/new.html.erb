@@ -1,36 +1,7 @@
-<%= form_for @release_plan do |f| %>
-  <h1 class="d-flex fw-bold justify-content-center mb-8"><%= t(".created_release_plan")%></h1>
-  <div class ="col-6 mx-auto">
-    <div class="form-outline mt-4 mb-4">
-    <%= f.label t(".project_name"), class: "form-label required" %>
-    <%= f.select :project_id, project_select, {}, class: "form-select #{invalid(@release_plan, :project_id)}" %>
-    <p class="error"><%= show_errors(@release_plan, :project_id) %></p>
-    </div>
-    <div class="form-outline mb-4">
-      <%= f.label t(".date"), class: "form-label required" %>
-      <%= f.date_field :release_date, class: "form-control #{invalid(@release_plan, :release_date)}" %>
-      <p class="error"><%= show_errors(@release_plan, :release_date) %></p>
-    </div>
-    <div class="form-outline mb-4">
-      <%= f.label t(".description"), class: "form-label required" %>
-      <%= f.text_area :description, class: "form-control #{invalid(@release_plan, :description)}", rows: "3" %>
-      <p class="error"><%= show_errors(@release_plan, :description) %></p>
-    </div>
-    <div class="form-outline mb-4" >
-      <%= f.label t(".status"), class: "form-label required" %>
-      <%= f.select :is_released, list_status, {}, class: "form-select #{invalid(@release_plan, :is_released)}", data: {
-          controller: "is_released_select",
-          action: "is_released_select#change"
-      } %>
-      <p class="error"><%= show_errors(@release_plan, :is_released) %></p>
-    </div>
-    <div class="form-outline mb-4" id="released_at-select_date-field">
-      <%= f.label t(".released_at"), class: "form-label" %>
-      <%= f.date_field :released_at, class: "form-control #{invalid(@release_plan, :released_at)}" %>
-      <p class="error"><%= show_errors(@release_plan, :released_at) %></p>
-    </div>
-    <div class="col-6 mx-auto">
-      <%= f.submit t(".submit"), class: "btn btn-primary btn-block mt-3 w-100" %>
-    <div>
+<% provide :title, t(".title") %>
+<div class="container ">
+  <h1 class="fw-bold pb-10 text-center"><%= t ".title" %></h1>
+  <div class="m-auto">
+    <%= render "form" %>
   </div>
-<% end %>
+</div>

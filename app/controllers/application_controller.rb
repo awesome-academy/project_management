@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include ProjectsHelper
   include MonthProjectFeaturesHelper
   include StatisticsResourcesHelper
+  include ReleasePlansHelper
   before_action :set_locale
 
   add_breadcrumb I18n.t("breadcrumbs.homepage"), :root_path

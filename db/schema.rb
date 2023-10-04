@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_152611) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_29_052639) do
   create_table "customers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -105,7 +105,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_152611) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "release_plan_id"
     t.index ["project_id"], name: "index_project_features_on_project_id"
+    t.index ["release_plan_id"], name: "fk_rails_93dfdcbd5c"
   end
 
   create_table "project_health_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -184,8 +186,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_152611) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "released_at"
+    t.string "release_code"
     t.index ["creator_id"], name: "index_release_plans_on_creator_id"
     t.index ["project_id"], name: "index_release_plans_on_project_id"
+    t.index ["release_code", "project_id"], name: "index_release_plans_on_release_code_and_project_id", unique: true
   end
 
   create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -251,6 +255,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_152611) do
   add_foreign_key "project_customers", "projects"
   add_foreign_key "project_environments", "projects"
   add_foreign_key "project_features", "projects"
+  add_foreign_key "project_features", "release_plans"
   add_foreign_key "project_health_items", "health_items"
   add_foreign_key "project_health_items", "projects"
   add_foreign_key "project_slack_settings", "projects"

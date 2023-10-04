@@ -49,6 +49,15 @@ class ProjectFeaturesController < ApplicationController
     add_breadcrumb t("breadcrumbs.new"), new_project_feature_path
   end
 
+  def plans
+    @target = params[:target]
+    @release_plans = ReleasePlan.filter_project(params[:project_id])
+                                .filter_status(Settings.is_released.released)
+                                .pluck :release_code, :id
+    @release_plans.unshift([t(".no_plan"), nil]) if @release_plans.empty?
+    respond_to :turbo_stream
+  end
+
   def create
     if @project.save
       flash[:success] = t ".create_success"
@@ -109,10 +118,11 @@ class ProjectFeaturesController < ApplicationController
       date = Time.zone.parse("#{project_feature_params['month_year']}-01")
       month = date.month
       year = date.year
+      release_plan_id = project_feature_params["release_plan_id"]
       project_feature_params["project_features_attributes"]
         &.values
         &.each do |feature_params|
-        feature_params.merge!(month:, year:)
+        feature_params.merge!(month:, year:, release_plan_id:)
       end
     end
     project_feature_params

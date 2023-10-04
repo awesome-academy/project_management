@@ -23,15 +23,10 @@
     <label class="form-label invisible">invisible label</label>
     <%= f.submit t(".search"), name: nil, class: "btn btn-primary form-control" %>
   </div>
-  <div class="col-auto w-100px m-0 ms-auto">
+  <div class="col-auto w-100px m-0">
     <label class="form-label invisible">invisible label</label>
     <%= link_to projects_path, class: "btn btn-secondary form-control" do %>
       <i class="bi bi-arrow-counterclockwise"></i>
     <% end %>
-  </div>
-
-  <div class="col-auto ms-auto">
-    <label class="form-label invisible">invisible label</label>
-    <%= link_to t(".new_project"), new_project_path, class: "btn btn-primary form-control" %>
   </div>
 <% end %>

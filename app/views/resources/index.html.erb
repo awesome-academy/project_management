@@ -19,6 +19,7 @@
             <i class="bi bi-three-dots-vertical"></i>
           </a>
           <div class="dropdown-menu">
+            <%= link_to t("resources.index.update_resource"), new_resource_path, class: "dropdown-item" %>
             <%= link_to t(".export"), resources_path(format: :xlsx, name: params[:name], month_year: params[:month_year]), class: "dropdown-item" %>
           </div>
         </div>

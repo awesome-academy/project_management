@@ -282,6 +282,8 @@ GEM
     regexp_parser (2.8.1)
     reline (0.3.8)
       io-console (~> 0.5)
+    requestjs-rails (0.0.10)
+      rails (>= 6.0.0)
     rexml (3.2.6)
     rondo_form (0.2.3)
       railties (>= 6.0)
@@ -418,6 +420,7 @@ DEPENDENCIES
   rails (~> 7.0.5)
   rails-i18n
   rails-patterns
+  requestjs-rails
   rondo_form (~> 0.2.3)
   rspec-rails
   rubocop (~> 1.26)

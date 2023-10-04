@@ -155,7 +155,8 @@ release_status = ["released", "preparing"]
     description: Faker::Lorem.sentence,
     is_released: status,
     release_date: Faker::Date.between(from: 6.months.ago, to: 2.months.ago),
-    released_at: released_at
+    released_at: released_at,
+    release_code: "release #{i}"
   )
 end
 
@@ -167,8 +168,12 @@ end
 end
 
 20.times do |i|
+  project_id = Faker::Number.between(from: 1, to: projects.size)
+  release_plans = ReleasePlan.filter_project(project_id).filter_status(Settings.is_released.released);
+  next if release_plans.size == 0
+  release_plan_id = release_plans[Faker::Number.between(from: 0, to: release_plans.size - 1)].id
   ProjectFeature.create!(
-    project_id: Faker::Number.between(from: 1, to: projects.size),
+    project_id: project_id,
     name: Faker::Name.name,
     description: Faker::Lorem.sentence,
     month: Faker::Number.between(from: 5, to: 10),
@@ -178,6 +183,7 @@ end
     repeat_time: Faker::Number.between(from: 1, to: 10),
     repeat_unit: Faker::Number.between(from: 0, to: 5),
     man_month: Faker::Number.between(from: 0, to: 5),
+    release_plan_id: release_plan_id
   )
 end
 

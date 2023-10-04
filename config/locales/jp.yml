@@ -401,7 +401,7 @@ jp:
       description: "説明"
       status: "状態"
       submit: "提出する"
-      released_at: "実際の発売日"
+      title: "新しいリリース計画を作成する"
     edit:
       title: "リリース計画の更新"
     form:
@@ -410,6 +410,7 @@ jp:
       scope_release_description: "範囲リリースの説明"
       status: "状態"
       save: "保存"
+      release_code: "リリースコード"
       released_at: "実際の発売日"
     is_released:
       preparing: "リリースの準備"
@@ -482,6 +483,7 @@ jp:
       time_total: "1 か月あたりに節約された合計時間数: %{hour_total} 時間"
       project_feature_index: "機能リスト"
   project_features:
+    no_plan: "プロジェクトの計画はありません"
     project_feature:
       feature_description: "機能の説明"
       waste_description: "システムを使わないと無駄になる"
@@ -549,6 +551,7 @@ jp:
     errors:
       month: "無効な月です"
       year: "年が無効です"
+      release_plan_id: "このプロジェクトの計画はまだ発表されていません"
   health:
     create:
       create_fail: "プロジェクトの健全性の作成に失敗しました"
