@@ -15,6 +15,7 @@ en:
     project_month: "Values List"
     checklist: "Checklist"
     values: "Project values statistics"
+    resource_by_user: "Resource list by user"
   application:
     project_management: "Project Management"
     invalid_start_date: "Start date must be before end date"
@@ -63,6 +64,7 @@ en:
       list_statistic_release: "Release schedule statistics"
       lesson_learn: "Project lessons"
       statistics_resources: "Statistics project resources"
+      statistics_user_resources: "Statistics resources by user"
       dashboard_resources: "Project resources statistics chart"
       statistics_values: "Project values statistics"
       statistics_group: "Statistics by group"
@@ -204,6 +206,7 @@ en:
       group: "Group"
       status: "Status"
       search: "Search"
+      new_project: "New project"
       start_date: "From created date"
       end_date: "To created date"
     project:
@@ -715,3 +718,23 @@ en:
       project_name: "Project name"
       date: "Date"
       sum_value: "Sum value"
+  statistics_user_resources:
+    index:
+      resource_by_user: "Resource list by user"
+    search:
+      group: "Group"
+      name: "User 's name"
+      search_by_name: "Search by name"
+      project_name: "Project 's name"
+      year: "Year"
+      search: "Search"
+      show_detail: "Show detail"
+      per_page: "Per page"
+      export: "Export resources"
+    table:
+      order: "No."
+      name: "Name"
+      group: "Group"
+      role: "Role"
+      project: "Project"
+      detail: "Detail"

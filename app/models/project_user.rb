@@ -9,6 +9,7 @@ class ProjectUser < ApplicationRecord
 
   delegate :name, :git_account, to: :user, prefix: true, allow_nil: true
   delegate :name, to: :project_role, prefix: true, allow_nil: true
+  delegate :name, to: :project, prefix: true, allow_nil: true
 
   accepts_nested_attributes_for :project_user_resources, allow_destroy: true,
                                                    reject_if: :all_blank

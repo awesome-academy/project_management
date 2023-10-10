@@ -1,0 +1,16 @@
+<tr class="table_row">
+  <td><%= sequence_number user_counter, @pagy.offset %></td>
+  <td><%= user.name %></td>
+  <td><%= group_name_from_group_ids user.group_ids %></td>
+  <td><%= role_name_from_project_user_ids user.project_user_ids %></td>
+  <td><%= project_name_from_project_ids user.project_ids %></td>
+  <% 12.times do |i| %>
+    <td><%= resources_from_project_users_by_month user.project_user_ids, i + 1, year_field_value(params[:year])
+     %></td>
+    <% if params[:show_detail].present? %>
+      <td>
+        <%= detail_from_project_users_by_month user.project_user_ids, i + 1, year_field_value(params[:year]) %>
+      </td>
+    <% end %>
+  <% end %>
+</tr>

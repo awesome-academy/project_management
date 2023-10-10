@@ -38850,3 +38850,19 @@ li.pd {
 .br {
   border-radius: 30% !important;
 }
+
+.user-resource-table tr td:nth-child(1),
+.user-resource-table tr th:nth-child(1)
+{
+  position: sticky;
+  left: 0;
+  background-color: #b4e1ee;
+}
+
+.user-resource-table tr td:nth-child(2),
+.user-resource-table tr th:nth-child(2)
+{
+  position: sticky;
+  left: 50px;
+  background-color: #b4e1ee;
+}

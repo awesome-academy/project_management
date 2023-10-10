@@ -1,0 +1,43 @@
+<%= form_with url: statistics_user_resources_path, method: :get do |f| %>
+  <div class="row mb-3">
+    <div class="col-auto">
+      <%= f.label :group_id,  t(".group"), class: "form-label" %>
+      <%= f.select :group_id, list_group, {include_blank: true, selected: params[:group_id]}, class: "form-select" %>
+    </div>
+    <div class="col-auto">
+      <%= f.label :name,  t(".name"), class: "form-label" %>
+      <%= f.text_field :name, value: params[:name], placeholder: t(".search_by_name"), class: "form-control"%>
+    </div>
+    <div class="col">
+      <%= f.label :project_name,  t(".project_name"), class: "form-label" %>
+      <%= f.select :project_id, list_project, {include_blank: true, selected: params[:project_id]}, class: "form-select" %>
+    </div>
+    <div class="col-auto">
+      <%= f.label :year,  t(".year"), class: "form-label" %>
+      <%= f.select :year, list_year, {:selected => params[:year] || this_year}, class: "form-select" %>
+    </div>
+    <div class="col-auto">
+      <label class="form-label invisible">invisible label</label>
+      <%= f.submit t(".search"), name: nil, class: "btn btn-primary form-control" %>
+    </div>
+    <div class="col-auto">
+      <label class="form-label invisible">invisible label</label>
+      <%= link_to users_path, class: "btn btn-secondary form-control" do %>
+        <i class="bi bi-arrow-counterclockwise"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mb-3 justify-content-between">
+    <div class="col-auto">
+      <div class="form-check">
+        <%= f.label :show_detail,  t(".show_detail"), class: "form-label" %>
+        <%= f.check_box :show_detail, {checked: params[:show_detail].present?, class: "form-check-input"}, true, false %>
+      </div>
+      <%= link_to t(".export"), statistics_user_resources_path(format: :xlsx, group_id: params[:group_id], name: params[:name], project_id: params[:project_id], year: params[:year], show_detail: params[:show_detail]), class: "btn btn-success form-control" %>
+    </div>
+    <div class="col-auto">
+      <%= f.label :per_page,  t(".per_page"), class: "form-label" %>
+      <%= f.select :per_page, list_per_page, {:selected => params[:per_page] || 30}, class: "form-select" %>
+    </div>
+  </div>
+<% end %>

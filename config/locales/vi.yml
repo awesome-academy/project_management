@@ -15,6 +15,7 @@ vi:
     project_month: "Danh sách giá trị"
     checklist: "Danh mục sức khỏe"
     values: "Thống kê value dự án"
+    resource_by_user: "DS Tài nguyên theo người dùng"
   application:
     project_management: "Quản lý dự án"
     invalid_start_date: "Ngày bắt đầu phải trước ngày kết thúc"
@@ -63,6 +64,7 @@ vi:
       list_statistic_release: "Biểu đồ thống kê lịch trình phát hành"
       lesson_learn: "Bài học dự án"
       statistics_resources: "Thống kê tài nguyên dự án"
+      statistics_user_resources: "Thống kê tài nguyên theo người dùng"
       dashboard_resources: "Biểu đồ thống kê tài nguyên dự án"
       statistics_values: "Thống kê values dự án"
       statistics_group: "Thống kê theo nhóm"
@@ -716,3 +718,23 @@ vi:
       project_name: "Dự án"
       date: "Tháng"
       sum_value: "Tổng số value đã thêm"
+  statistics_user_resources:
+    index:
+      resource_by_user: "Danh sách tài nguyên theo người dùng"
+    search:
+      group: "Nhóm"
+      name: "Tên người dùng"
+      search_by_name: "Tìm kiếm theo tên"
+      project_name: "Tên dự án"
+      year: "Năm"
+      search: "Tìm kiếm"
+      show_detail: "Xem chi tiết"
+      per_page: "Hiển thị"
+      export: "Xuất thống kê"
+    table:
+      order: "STT"
+      name: "Tên nhân viên"
+      group: "Nhóm"
+      role: "Vai trò"
+      project: "Dự án"
+      detail: "Chi tiết"

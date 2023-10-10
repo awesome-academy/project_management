@@ -15,9 +15,13 @@ date:
   format: "%d/%m/%Y"
   format_date_field: "%Y-%m-%d"
   format_month_field: "%Y-%m"
+  format_short_month: "%b"
+  year_range: 100
 pagy:
   number_items_10: 10
   number_items_20: 20
+  number_items_30: 30
+  number_items_50: 50
 project:
   max_length_100: 100
   max_length_200: 200

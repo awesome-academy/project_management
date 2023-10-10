@@ -6,15 +6,14 @@
                        class: "form-control #{invalid @report, :date}" %>
       <p class="error"><%= show_errors @report, :date %></p>
     </div>
-
     <div class="form-group col-md-5">
       <label for="report_project_id" class="form-label required"><%= t ".choose_project" %></label>
       <%= f.collection_select :project_id, @projects, :id, :name, {},
-                              {class: "form-select #{invalid @report, :project_id}"} %>
+                              {class: "form-select #{invalid @report, :project_id}",
+                                disabled: local_assigns[:remote] } %>
       <p class="error"><%= show_errors @report, :project_id %></p>
     </div>
   </div>
-
   <div class="form-group">
     <label for="report_description" class="form-label required"><%= t ".job_description" %></label>
     <%= f.text_area :description,
@@ -22,7 +21,6 @@
                     rows: "3" %>
     <p class="error"><%= show_errors @report, :description %></p>
   </div>
-
   <div class="form-group">
     <label for="report_resource_description" class="form-label required"><%= t ".resource_description" %></label>
     <%= f.text_area :resource_description,
@@ -30,7 +28,6 @@
                     rows: "3" %>
     <p class="error"><%= show_errors @report, :resource_description %></p>
   </div>
-
   <div class="form-group">
     <label for="report_issue" class="form-label required"><%= t ".issue" %></label>
     <%= f.text_area :issue,
@@ -38,8 +35,11 @@
                     rows: "3" %>
     <p class="error"><%= show_errors @report, :issue %></p>
   </div>
-
-  <div class="d-flex justify-content-center">
-    <%= f.submit t(".save"), class: "btn btn-primary btn-block btn-md w-50 mt-3 form-control" %>
+  <div class="d-flex justify-content-between align-items-center mt-3">
+    <%= f.submit t(".save"), class: "btn btn-primary btn-block btn-md w-25 mt-3 form-control" %>
+    <%= link_to t(".close"), "#", class: "btn btn-danger btn-md w-25", data: {
+          controller: "modals",
+          action: "modals#close"
+        } %>
   </div>
 <% end %>
