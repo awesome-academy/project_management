@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en|vi|jp/ do
+  scope "(:locale)", locale: /en|vi|ja/ do
     root "dashboard#index"
     get    "/login",   to: "sessions#new"
     post   "/login",   to: "sessions#create"
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :project_users, only: %i(destroy edit update)
     resources :password_resets, only: %i(new create edit update)
     resources :resources
-    resources :users, only: %i(edit update)
+    resources :users, only: %i(edit update index)
     resources :reports
     resources :release_plans do
       collection do
@@ -32,5 +32,6 @@ Rails.application.routes.draw do
     resources :statistics_values, only: :index
     resources :statistics_groups, only: :index
     resources :dashboard_values, only: :index
+    resources :statistics_user_resources, only: :index
   end
 end

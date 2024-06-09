@@ -1,0 +1,22 @@
+<div class="table-responsive" style="overflow-x: auto;">
+  <table class="table table-striped align-middle table-hover table-bordered padding-margin-0 user-resource-table">
+    <thead>
+      <tr>
+        <th scope="col" width="50px"><%= t(".order")%></th>
+        <th scope="col" width="150px"><%= t(".name")%></th>
+        <th scope="col" width="150px"><%= t(".group")%></th>
+        <th scope="col" width="150px"><%= t(".role")%></th>
+        <th scope="col" width="200px"><%= t(".project")%></th>
+        <% 12.times do |i| %>
+          <th scope="col" width="100px"><%= l(convert_month_to_date(i + 1), format: Settings.date.format_short_month)%></th>
+          <% if params[:show_detail].present? %>
+            <th scope="col" width="200px"></th>
+          <% end %>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <%= render partial: "user", collection: @users%>
+    </tbody>
+  </table>
+</div>

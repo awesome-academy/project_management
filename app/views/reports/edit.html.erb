@@ -6,12 +6,6 @@
       <% end %>
       <h1 class="fw-bold text-center mb-4"><%= t(".title") %></h1>
       <%= render "form", url:  report_path(@report), remote: true %>
-      <div class="d-flex justify-content-center align-items-center mt-3">
-        <%= link_to t(".close"), "#", class: "btn btn-danger btn-md w-50", data: {
-          controller: "modals",
-          action: "modals#close"
-        } %>
-      </div>
     </div>
   <% end %>
 </div>

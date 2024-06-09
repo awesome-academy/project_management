@@ -13,6 +13,11 @@ class ProjectUserResource < ApplicationRecord
                                            message: I18n.t(".duplicate_users")}
   validate :total_percentage_within_limit, on: %i(create update)
 
+  scope :filter_project_user_ids, lambda {|project_user_ids|
+                                    if project_user_ids
+                                      where(project_user_id: project_user_ids)
+                                    end
+                                  }
   scope :filter_month, ->(month){where(month:) if month}
   scope :filter_year, ->(year){where(year:) if year}
   scope :total_man_month_year, lambda {|month, year|

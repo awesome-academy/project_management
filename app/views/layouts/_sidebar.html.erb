@@ -15,70 +15,66 @@
             <%= link_to t(".list_projects"), projects_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item mb-2 menu-item pd <%= active_class_for_url(reports_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-file-text text-white me-1"></i>
             <%= link_to t(".list_reports"), reports_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item mb-2 menu-item pd <%= active_class_for_url(resources_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-briefcase text-white me-1"></i>
             <%= link_to t(".list_resources"), resources_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item offset-1 mb-2 show collapse pd <%= active_class_for_url(dashboard_resources_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-pie-chart-fill text-white me-1"></i>
             <%= link_to link_to t(".dashboard_resources"), dashboard_resources_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item offset-1 mb-2 menu-item pd <%= active_class_for_url statistics_resources_path %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-bar-chart text-white me-1"></i>
             <%= link_to t(".statistics_resources"), statistics_resources_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
+        <li class="nav-item offset-1 mb-2 menu-item pd <%= active_class_for_url statistics_user_resources_path %>">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-bar-chart text-white me-1"></i>
+            <%= link_to t(".statistics_user_resources"), statistics_user_resources_path, class: "nav-link fw-bold" %>
+          </div>
+        </li>
         <li class="nav-item mb-2 menu-item pd <%= active_class_for_url(project_features_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-coin text-white me-1"></i>
             <%= link_to t(".list_values"), project_features_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item offset-1 mb-2 show collapse pd <%= active_class_for_url(dashboard_values_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-pie-chart-fill text-white me-1"></i>
             <%= link_to link_to t(".dashboard_values"), dashboard_values_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item offset-1 mb-2 menu-item pd <%= active_class_for_url statistics_values_path %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-bar-chart text-white me-1"></i>
             <%= link_to t(".statistics_values"), statistics_values_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item mb-2 menu-item pd <%= active_class_for_url(release_plans_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-calendar text-white me-1"></i>
             <%= link_to t(".list_release_plans"), release_plans_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item offset-1 mb-2 show collapse pd <%= active_class_for_url(statistics_release_plans_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-pie-chart-fill text-white me-1"></i>
             <%= link_to t(".list_statistic_release"), statistics_release_plans_path(year: year_field_value(params[:year])), class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item mb-2 menu-item pd">
           <div class="d-flex align-items-center">
             <i class="bi bi-balloon-heart text-white me-1"></i>
@@ -93,14 +89,12 @@
             </a>
           </div>
         </li>
-
         <li class="nav-item offset-1 mb-2 show collapse pd <%= active_class_for_url(new_health_path) %>" id="healthCollapse">
           <div class="d-flex align-items-center">
             <i class="bi bi-pencil text-white me-1"></i>
             <%= link_to t(".list_new_health"), new_health_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <% if current_user.can_modify_health_item? %>
           <li class="nav-item offset-1 mb-2 show collapse menu-item pd <%= active_class_for_url(health_items_path) %>" id="healthCollapse">
             <div class="d-flex align-items-center">
@@ -109,21 +103,18 @@
             </div>
           </li>
         <% end %>
-
         <li class="nav-item mb-2 menu-item pd <%= active_class_for_url lesson_learns_path %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-journal-check text-white me-1"></i>
             <%= link_to t(".lesson_learn"), lesson_learns_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item mb-2 menu-item pd <%= active_class_for_url(value_resources_path) %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-bar-chart text-white me-1"></i>
             <%= link_to t(".list_value_resources"), value_resources_path, class: "nav-link fw-bold" %>
           </div>
         </li>
-
         <li class="nav-item mb-2 menu-item pd <%= active_class_for_url statistics_groups_path %>">
           <div class="d-flex align-items-center">
             <i class="bi bi-bar-chart text-white me-1"></i>

@@ -26,6 +26,30 @@ class User < ApplicationRecord
             length: {minimum: Settings.digits.length_6},
             allow_nil: true
 
+  scope :filter_name, lambda {|name|
+                        where("name LIKE ?", "%#{name}%") if name.present?
+                      }
+  scope :filter_project, lambda {|project_id|
+    if project_id.present?
+      joins(:project_users).where(project_users: {project_id:})
+    end
+  }
+  scope :filter_group, lambda {|group_id|
+    joins(:user_groups).where(user_groups: {group_id:}) if group_id.present?
+  }
+  scope :filter_year, lambda {|year|
+    if year.present?
+      joins(
+        project_users: [
+          :project_user_resources
+        ]
+      ).where(
+        project_user_resources: {
+          year:
+        }
+      ).distinct
+    end
+  }
   has_secure_password
 
   class << self

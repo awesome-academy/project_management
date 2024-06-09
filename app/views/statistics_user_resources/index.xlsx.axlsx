@@ -1,0 +1,14 @@
+wb = xlsx_package.workbook
+
+s = wb.styles
+centered_bold = s.add_style alignment: { horizontal: :center }, b: true
+bold = s.add_style b: true
+
+wb.add_worksheet(name: "Resources per user") do |sheet|
+  # nguoi dung | | | group | | | role | | |du an | | | thang 1 | | | thang 2 | | | tong | | |
+  sheet.add_row header_excel
+
+  @users.each do |user|
+    sheet.add_row data_excel user
+  end
+end

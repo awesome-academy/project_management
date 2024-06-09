@@ -1,4 +1,4 @@
-jp:
+ja:
   duplicate_users: "重複"
   error_percentage_limit: "月中の 1 ユーザーの合計パーセンテージが 100% を超える"
   hello_world: "こんにちは世界"
@@ -15,6 +15,7 @@ jp:
     project_month: "値のリスト"
     checklist: "チェックリスト"
     values: "プロジェクト価値の統計"
+    resource_by_user: "ユーザー別のリソースリスト"
   application:
     project_management: "プロジェクト管理"
     invalid_start_date: "開始日は終了日より前でなければなりません"
@@ -63,6 +64,7 @@ jp:
       list_statistic_release: "リリーススケジュールの統計グラフ"
       lesson_learn: "プロジェクトレッスン"
       statistics_resources: "統計プロジェクトのリソース"
+      statistics_user_resources: "ユーザー別のリソース統計"
       dashboard_resources: "プロジェクトリソース統計グラフ"
       statistics_values: "プロジェクト価値の統計"
       statistics_group: "グループ別の統計"
@@ -204,6 +206,7 @@ jp:
       group: "グループ"
       status: "状態"
       search: "検索"
+      new_project: "新しいプロジェクト"
       start_date: "作成日から"
       end_date: "作成日まで"
     project:
@@ -715,3 +718,23 @@ jp:
       project_name: "プロジェクト名"
       date: "日付"
       sum_value: "合計値"
+  statistics_user_resources:
+    index:
+      resource_by_user: "ユーザー別のリソースリスト"
+    search:
+      group: "グループ"
+      name: "ユーザー名"
+      search_by_name: "名前で検索"
+      project_name: "プロジェクト名"
+      year: "年"
+      search: "検索"
+      show_detail: "詳細を表示"
+      per_page: "ページごとの項目数"
+      export: "エクスポート"
+    table:
+      order: "番号順"
+      name: "ユーザー名"
+      group: "グループ"
+      role: "役割"
+      project: "プロジェクト"
+      detail: "詳細"

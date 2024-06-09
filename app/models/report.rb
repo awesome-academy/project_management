@@ -1,6 +1,6 @@
 class Report < ApplicationRecord
   UPDATE_ATTRS = [
-    :date, :project_id, :description,
+    :date, :description,
     :resource_description, :issue
   ].freeze
 
